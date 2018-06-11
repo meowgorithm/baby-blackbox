@@ -1,13 +1,13 @@
+[![GoDoc Badge](https://godoc.org/github.com/magicnumbers/blackbox?status.svg)](http://godoc.org/github.com/magicnumbers/blackbox)
+
 Blackbox
 ========
 
 Blackbox testing for Go JSON APIs. Currently, it supports the Go standard
 library’s Multiplexer (`http.ServeMux`) and [Goji’s][goji] multiplexer
-`goji.Mux` multiplexer.
+(`goji.Mux`) multiplexer.
 
 [goji]: http://goji.io
-
-GoDocs coming, eventually.
 
 
 ## Pithy Example
