@@ -10,7 +10,7 @@ library’s Multiplexer (`http.ServeMux`) and [Goji’s][goji] multiplexer
 [goji]: http://goji.io
 
 
-## Pithy Example
+## Example
 
 ```go
 

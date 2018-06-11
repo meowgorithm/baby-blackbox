@@ -23,12 +23,13 @@ func Init() *http.ServeMux {
 	return mux
 }
 
-// Our one and only handler
+// Handler
 func cool(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(Response{true})
 }
 
+// Another handler
 func notCool(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusForbidden)
 	fmt.Fprint(w, "You are not allowed to taste the forbidden fruit.")
