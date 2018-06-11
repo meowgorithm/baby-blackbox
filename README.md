@@ -1,7 +1,7 @@
-[![GoDoc Badge](https://godoc.org/github.com/magicnumbers/blackbox?status.svg)](http://godoc.org/github.com/magicnumbers/blackbox)
+[![GoDoc Badge](https://godoc.org/github.com/magicnumbers/baby-blackbox?status.svg)](http://godoc.org/github.com/magicnumbers/baby-blackbox)
 
-Blackbox
-========
+Baby Blackbox
+=============
 
 Blackbox testing for Go JSON APIs. Currently, it supports the Go standard
 library’s Multiplexer (`http.ServeMux`) and the [Goji][goji] multiplexer
@@ -18,7 +18,7 @@ package main_test
 
 import (
     "testing"
-    "blackbox"
+    "baby-blackbox"
     app "."
 )
 
