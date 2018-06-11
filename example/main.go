@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -18,7 +19,19 @@ type Response struct {
 func Init() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", cool)
+	mux.HandleFunc("/notcool", notCool)
 	return mux
+}
+
+// Our one and only handler
+func cool(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(Response{true})
+}
+
+func notCool(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusForbidden)
+	fmt.Fprint(w, "You are not allowed to taste the forbidden fruit.")
 }
 
 func main() {
@@ -26,9 +39,4 @@ func main() {
 	flag.Parse()
 	log.Printf("webserver running on port %s", port)
 	log.Fatal(http.ListenAndServe(":"+port, Init()))
-}
-
-func cool(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(Response{true})
 }
