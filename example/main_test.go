@@ -6,6 +6,14 @@ import (
 	"os"
 	"testing"
 
+	// Import our main application. Depending on how your project is setup
+	// you may need to do this differently. In many cases the common use case
+	// is to do something along the lines of:
+	//
+	// import name "."
+	//
+	// ...which would normally be a bad circular import thing, but in the case
+	// of testing it's fine.
 	example "blackbox/example"
 )
 
