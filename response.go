@@ -67,7 +67,7 @@ func (a Response) Created() Response {
 	return a
 }
 
-// NoContent is a shortcut for checking for a an HTTP 204 response
+// NoContent is a shortcut for checking for an HTTP 204 response
 func (a Response) NoContent() Response {
 	a.Status(http.StatusNoContent)
 	return a

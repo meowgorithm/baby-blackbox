@@ -33,7 +33,7 @@ type APITest struct {
 
 // Request makes a call to a REST API. It returns a Response struct which
 // contains information about the response to the request, as well as methods
-// for analyzing and working with the request data. See `request.go`.
+// for analyzing and working with the request data. See Request.
 func (a *APITest) Request(method string, path string, body interface{}) Response {
 	var (
 		b   []byte
