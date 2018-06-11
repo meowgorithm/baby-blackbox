@@ -41,21 +41,25 @@ func TestStuff(t *testing.T) {
     // Create a blackbox testing thing from your application's multiplexer
     api := blackbox.New(t, app.GetMux())
 
-    // Create a user, expecting to get an ID back
+    // The payload we'll send in the next request
     u := user{Name: "Frankie"}
-    api.Request("POST", "/user", u).
-        Created(). // Assert that we want a 201 Created HTTP status
-        JSON(&u)   // Decode the response into a struct
 
+    // Create a user expecting to get an ID back in a JSON object. We assert
+    // that we want a 201 Created status code.
+    api.Request("POST", "/user", u).
+        Created().
+        JSON(&u)
+
+    // Make sure we got an ID in the response
     if u.ID == 0 {
         t.Error("expected to receive an ID, but we did not")
     }
 
     var apiErr apiError
 
-    // Check another route, expecting an error
+    // Check another route, expecting a 401 Unauthorized error
     api.Request("GET", "/cats", nil).
-        Status(http.StatusInternalServerError).
+        Status(http.StatusUnauthorized).
         JSON(&apiErr)
 
     if err.Code != 21 {
