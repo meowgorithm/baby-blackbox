@@ -4,8 +4,8 @@ Blackbox
 ========
 
 Blackbox testing for Go JSON APIs. Currently, it supports the Go standard
-library’s Multiplexer (`http.ServeMux`) and [Goji’s][goji] multiplexer
-(`goji.Mux`) multiplexer.
+library’s Multiplexer (`http.ServeMux`) and the [Goji][goji] multiplexer
+(`goji.Mux`).
 
 [goji]: http://goji.io
 
