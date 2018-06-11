@@ -13,25 +13,27 @@ import (
 	goji "goji.io"
 )
 
-// New instantiates a new API test object with a standard `http.ServeMux`
+// New instantiates a new API test object with a standard http.ServeMux
 func New(t *testing.T, mux *http.ServeMux) APITest {
 	return APITest{t: t, mux: mux}
 }
 
-// NewWithGoji instantiates a new API test object with a Goji `goji.Mux`
+// NewWithGoji instantiates a new API test object with a goji.Mux
 func NewWithGoji(t *testing.T, mux *goji.Mux) APITest {
 	return APITest{t: t, gojiMux: mux}
 }
 
 // APITest is a helper for running a series of API tests. Initialize it once
-// with `New`, then call `Request` to issue API requests
+// with New (or NewWithGoji) then call `Request` to issue API requests
 type APITest struct {
 	t       *testing.T
 	mux     *http.ServeMux
 	gojiMux *goji.Mux
 }
 
-// Request makes a call to a REST API. Returns the response code and request body.
+// Request makes a call to a REST API. It returns a Response struct which
+// contains information about the response to the request, as well as methods
+// for analyzing and working with the request data. See `request.go`.
 func (a *APITest) Request(method string, path string, body interface{}) Response {
 	var (
 		b   []byte
