@@ -23,12 +23,12 @@ import (
 )
 
 type user struct {
-    ID int `json:"id,omitempty"`
+    ID int      `json:"id,omitempty"`
     Name string `json:"name"`
 }
 
 type apiError {
-    Code int `json:"code"`
+    Code int       `json:"code"`
     Message string `json:"message"`
 }
 
@@ -43,9 +43,9 @@ func TestStuff(t *testing.T) {
 
     // Create a user, expecting to get an ID back
     u := user{Name: "Frankie"}
-    api.Request("POST", "/user", u)
-        .Created() // Assert that we want a 201 Created HTTP status
-        .JSON(&u)  // Decode the response into a struct
+    api.Request("POST", "/user", u).
+        Created(). // Assert that we want a 201 Created HTTP status
+        JSON(&u)   // Decode the response into a struct
 
     if u.ID == 0 {
         t.Error("expected to receive an ID, but we did not")
@@ -54,9 +54,9 @@ func TestStuff(t *testing.T) {
     var apiErr apiError
 
     // Check another route, expecting an error
-    api.Request("GET", "/cats", nil)
-        .Status(http.StatusInternalServerError)
-        .JSON(&apiErr)
+    api.Request("GET", "/cats", nil).
+        Status(http.StatusInternalServerError).
+        JSON(&apiErr)
 
     if err.Code != 21 {
         t.Errorf("thought we were gonna get error code 21, instead got %d", err.Code)
