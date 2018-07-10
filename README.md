@@ -5,7 +5,8 @@ Baby Blackbox
 
 Blackbox testing for Go JSON APIs. Currently, it supports the Go standard
 library’s Multiplexer (`http.ServeMux`) and the [Goji][goji] multiplexer
-(`goji.Mux`).
+(`goji.Mux`). If there's another multiplexer you'd like it to support let us
+know.
 
 [goji]: http://goji.io
 
@@ -18,7 +19,7 @@ package main_test
 
 import (
     "testing"
-    "baby-blackbox"
+    "github.com/magicnumbers/baby-blackbox"
     app "."
 )
 
