@@ -1,10 +1,11 @@
 package main_test
 
 import (
-	"blackbox"
 	"net/http"
 	"os"
 	"testing"
+
+	blackbox "github.com/meowgorithm/baby-blackbox"
 
 	// Import our main application. Depending on how your project is setup
 	// you may need to do this differently. In many cases the common use case
@@ -14,7 +15,7 @@ import (
 	//
 	// ...which would normally be a bad circular import thing, but in the case
 	// of testing it's fine.
-	example "blackbox/example"
+	example "example"
 )
 
 func TestMain(m *testing.M) {

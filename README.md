@@ -19,7 +19,7 @@ package main_test
 
 import (
     "testing"
-    "github.com/meowgorithm/baby-blackbox"
+    blackbox "github.com/meowgorithm/baby-blackbox"
     app "."
 )
 
