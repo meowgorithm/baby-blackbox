@@ -1,4 +1,4 @@
-[![GoDoc Badge](https://godoc.org/github.com/magicnumbers/baby-blackbox?status.svg)](http://godoc.org/github.com/magicnumbers/baby-blackbox)
+[![GoDoc Badge](https://godoc.org/github.com/meowgorithm/baby-blackbox?status.svg)](http://godoc.org/github.com/meowgorithm/baby-blackbox)
 
 Baby Blackbox
 =============
@@ -19,7 +19,7 @@ package main_test
 
 import (
     "testing"
-    "github.com/magicnumbers/baby-blackbox"
+    "github.com/meowgorithm/baby-blackbox"
     app "."
 )
 
