@@ -1,15 +1,10 @@
-all: build
-
-build:
-	go build -o server main.go
+example:
+	go build -v
 
 clean:
-	rm server
-
-run:
-	go run main.go
+	rm example
 
 test:
 	export DEBUG=1 && go test -v
 
-.PHONY: clean run
+.PHONY: clean run test
