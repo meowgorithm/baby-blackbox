@@ -34,7 +34,7 @@ type APITest struct {
 // Request makes a call to a REST API. It returns a Response struct which
 // contains information about the response to the request, as well as methods
 // for analyzing and working with the request data. See Request.
-func (a *APITest) Request(method string, path string, body interface{}) Response {
+func (a *APITest) Request(method string, path string, body interface{}, headers map[string]string) Response {
 	var (
 		b   []byte
 		err error
@@ -50,6 +50,12 @@ func (a *APITest) Request(method string, path string, body interface{}) Response
 	// Make the request
 	recorder := httptest.NewRecorder()
 	request := httptest.NewRequest(method, path, bytes.NewReader(b))
+
+	if len(headers) > 0 {
+		for k, v := range headers {
+			request.Header.Set(k, v)
+		}
+	}
 
 	// Which mux should we be using?
 	if a.mux != nil {
